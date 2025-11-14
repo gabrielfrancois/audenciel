@@ -19,7 +19,7 @@ jobs:
               uses: actions/checkout@v3
 
             - name: Set up Docker Buildx
-              uses: docker/setup-buildx-action@v2
+              uses: docker/setup-buildx-action@v3
 
             - name: Prepare buildx cache dir
               run: mkdir -p /tmp/.buildx-cache
@@ -28,16 +28,22 @@ jobs:
               uses: actions/cache@v3
               with:
                 path: /tmp/.buildx-cache
-                key: ${{ runner.os }}-buildx-${{ hashFiles('**/Dockerfile') }}-${{ github.ref }}
+                key: buildx-${{ hashFiles('**/Dockerfile') }}
                 restore-keys: |
-                    ${{ runner.os }}-buildx-${{ hashFiles('**/Dockerfile') }}-
+                    buildx-${{ hashFiles('**/Dockerfile') }}
 
-            - name: Build Docker image
+            - name: Docker build
+              uses: docker/build-push-action@v6
+              with:
+                push: false
+                tags: ${{ env.DOCKER_IMAGE_NAME }}
+                cache-from: type=local,src=${{ runner.temp }}/.buildx-cache
+                cache-to: type=local,dest=${{ runner.temp }}/.buildx-cache-new,mode=max
+
+            - name: Clean docker cache to avoid large growth
               run: |
-                docker build --progress=plain \
-                    --cache-from=type=local,src=/tmp/.buildx-cache \
-                    --cache-to=type=local,dest=/tmp/.buildx-cache,mode=max \
-                    -t ${{ env.DOCKER_IMAGE_NAME }} .
+                rm -rf /tmp/.buildx-cache
+                mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
             - name: Prepare input/output directories (per README)
               run: |
