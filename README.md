@@ -11,6 +11,7 @@ It sets up a dummy classification task, evaluated with accuracy metric on a publ
 - `*_phase/`: contains the data for a given phase, including input data and reference labels. Running `setup_data.py` will generate dummy data for a development phase.
 - `competition.yaml`: configuration file for the codabench competition, specifying phases, tasks, and evaluation metrics.
 - `pages/`: contains markdown files that will be rendered as web pages in the codabench competition.
+- `requirements.txt`: contains the required python dependencies to run the challenge.
 
 ## Extra scripts in this repository
 
