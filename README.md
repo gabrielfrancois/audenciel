@@ -59,6 +59,8 @@ public and private test set.
   the repository structure.
 - `tools/Dockerfile`: Dockerfile to build the docker image that will be used to
   run the ingestion and scoring programs.
+- `tools/run_docker.py`: convenience script to build and test the docker image
+  locally without knowing docker commands. See [here](#setting-up-and-testing-the-docker-image) for more details.
 
 ## Instruction to create the codabench bundle
 
