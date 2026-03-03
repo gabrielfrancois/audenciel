@@ -20,10 +20,10 @@ TRAIN_WEIGHT = 1 / 3
 PRIVATE_WEIGHT = 1 / 3
 
 
-def compute_accuracy(predictions, targets):
+def compute_recall(predictions, targets):
     # Make sure there is no NaN, as pandas ignores them in mean computation
-    predictions = predictions.fillna(-10).values
-    targets = targets.values.ravel()
+    predictions = predictions.replace({-1: 0}).fillna(0).values
+    targets = targets.replace({-1: 0}).values.ravel()
     return float(recall_score(targets, predictions, zero_division=0))
 
 def score_model_size(size_mb):
