@@ -2,7 +2,7 @@
 
 Welcome to the **AUDENSIEL - REFIT** Data Challenge!
 
-This dataset has been set up with the help of AUDENSIEL, using part of the REFIT electricity consumption database. The REFIT database is a two-year study of the consumption of British households.
+This dataset has been set up with the help of AUDENSIEL, using part of the REFIT electricity consumption database. The REFIT database is a two-year study of the consumption of British households. AUDENSIEL supported this challenge via their EcoSmartGrid research, which aims in developing monitoring tools to detect consumption anomalies directly via the electricity meter.
 
 **Aim of the Challenge**
 
@@ -22,14 +22,6 @@ The REFIT dataset has been adapted: a household has been annotated to indicate a
   - A prediction of the anomaly type among the defined classes (normal, elongated, frequent), when possible given the chosen approach
 
 The model should be designed to learn primarily from multi-home "normal-only" data. The annotated data will be used for supervised or semi-supervised training.
-
-**Phase 2: Energy Overconsumption Estimation** *(TBC)*
-- **Objective**: Same dataset as Phase 1. In addition to detection, estimate the energy impact of the abnormal state
-- **Expected Output**:
-  - **Instantaneous level**: Estimated overconsumption in power (W) or energy per time step
-  - **Aggregated level**: Total overconsumption per anomaly episode and per home, and average overconsumption during abnormal periods
-
-The expected methodology relies on building a "normal expected" baseline from nominal periods, then estimating the observed deviation during abnormal periods.
 
 **Getting Started**
 

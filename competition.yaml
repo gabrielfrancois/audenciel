@@ -1,60 +1,62 @@
 version: 2
-title: Templat competition - Dummy classification
-description: Dummy classification task
+title:  REFIT-datacamp, Anomaly detection/classification in electricity consumption of appliances
+description: REFIT-AUDENSIEL
 image: logo.png
 registration_auto_approve: False  # if True, do not require approval from admin to join the comp
 
-terms: pages/terms.md
+terms: terms.md
+
 pages:
-  - title: Participation
-    file: pages/participate.md
-  - title: Seed
-    file: pages/seed.md
-  - title: Timeline
-    file: pages/timeline.md
+- title: Overview
+  file: overview.md
+- title: How do I start?
+  file: how-do-i-start.md
+- title: Submission
+  file: submission.md
+- title: Evaluation and scoring
+  file: evaluation-and-scoring.md
+- title: FAQ
+  file: FAQ.md
+- title: About
+  file: about.md
 
 tasks:
-  - index: 0
-    name: Developement Task
-    description: 'Tune models with training data, test against examples contained in public test data'
-    input_data: dev_phase/input_data/
-    reference_data: dev_phase/reference_data/
-    ingestion_program: ingestion_program/
-    scoring_program: scoring_program/
+- index: 0
+  name: Anomaly detection and classification of electricity consumption using only information from the electricity meter 
+  description: Audensiel / EcoSmartGrid data challenge
+  reference_data: ground_truth_public.zip 
+  input_data: input_data_public.zip
+  scoring_program: scoring_program.zip
+  ingestion_program: ingestion_program.zip
 
-solutions:
-  - index: 0
-    tasks:
-    - 0
-    path: solution/
+solutions: []
 
 
 phases:
-  - name: Development Phase
-    description: 'Development phase: tune your models.'
-    start: 10-07-2025
-    end: 03-31-2026
-    tasks:
-      - 0
+- index: 0
+  name: Anomaly detection and classification of electricity consumption using only information from the electricity meter
+  description: good luck 
+  start: '2026-12-14'
+  # start: '2026-12-04 9:00'
+  # end: '2024-12-28 11:00'
+  end: '2027-03-12 22:50'
+  max_submissions_per_day: 100
+  max_submissions: 300
+  execution_time_limit: 600000
+  auto_migrate_to_this_phase: false
+  hide_output: false
+  starting_kit: starting_kit.zip
+  tasks:
+  - 0
 
 leaderboards:
-  - title: Results
-    key: main
-    columns:
-      - title: Test Accuracy
-        key: test
-        index: 0
-        sorting: asc
-      - title: Private Test Accuracy
-        key: private_test
-        index: 1
-        sorting: asc
-        hidden: True
-      - title: Train time
-        key: train_time
-        index: 2
-        sorting: desc
-      - title: Test time
-        key: test_time
-        index: 3
-        sorting: desc
+- index: 0
+  title: Scores
+  key: score
+  hidden: false
+  submission_rule: "Add_And_Delete_Multiple"
+  columns:
+  - title: median overall performance
+    key: median_performance
+    index: 0
+    sorting: desc
