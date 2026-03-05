@@ -57,4 +57,37 @@ How to include an external file to be used in the submission script?
 
 It is possible to include an external file that is sourced in the submission script and correctly included in the zip file to be submitted on the Codabench platform.
 
-Beware, when unzipped the file 'program.py' has to be on the current directory and not inside a folder. Additional files can be located in other folders with the correct relative path.
+Beware, when unzipped the file 'program.py' has to be on the current directory and not inside a folder. Additional files can be located in other folders with the correct relative path.;
+
+# The task and the baseline:
+
+## Anomaly Detection:
+
+Anomaly detection refers to the task of identifying observations that significantly deviate from the majority of the data. These anomalies (or outliers) are usually:
+
+- Rare
+- Difficult to label
+- Different in nature from normal patterns
+
+Most anomaly detection methods follow a common modeling principle: first learn a representation of normal data, then compute a score that quantifies how much each observation deviates from this normal behavior.
+
+## What is Isolation Forest
+
+Isolation Forest is an unsupervised anomaly detection method that identifies anomalies by isolating observations rather than modeling normal behavior.  
+It builds random trees and measures how quickly a point is isolated:  
+**anomalies require fewer splits**, while normal points lie deeper in the trees.
+
+## Why Isolation Forest?
+
+- Works with **normal-only data**
+- Robust to **strong class imbalance**
+- **Fast and scalable**, suitable for large time series
+- Few assumptions on data distribution
+- Produces a continuous **anomaly score** usable for thresholding
+
+## What Other Methods to Check?
+
+- **Statistical**: Z-score, rolling mean/variance, change-point detection  
+- **Unsupervised ML**: One-Class SVM, LOF, Gaussian Mixture Models  
+- **Deep Learning**: Autoencoders, LSTM-based models, forecasting error  
+- **Hybrid**: Feature engineering + Isolation Forest, clustering for anomaly types
