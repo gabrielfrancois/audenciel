@@ -1,7 +1,12 @@
 # Evaluation and Scoring   
                            
-The **global score** is used to rank the different methods and is computed from a combination of several metrics : the proportion of detected anomalies, the number of false negatives and **finish this**.
-
+The **global score** is used to rank the different methods and is computed from a combination of several metrics : 
+  - The first criterion rewards model compactness: models under 20 MB receive a perfect size score, while larger models are penalised linearly down to zero at 40 MB.
+  - The second and third criteria measure predictive performance on a public test set and a hidden private test set respectively. 
+  - Each of these is a 50/50 blend of recall and inference speed, where speed is scored relative to a 60-second reference time. 
+  - The final score is the average of these three components.
+ 
+  
 To see your score:
 
   - Go on *My Submission* menu.
