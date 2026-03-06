@@ -39,6 +39,13 @@ def load_and_prepare(name, filename, house_id):
     if df["time"].isnull().any() and "unix" in df.columns:
         df["time"] = pd.to_datetime(df["unix"], unit="s")
 
+    df["year"] = df["date"].dt.year
+    df["month"] = df["date"].dt.month
+    df["day"] = df["date"].dt.day
+    df["dayofweek"] = df["date"].dt.dayofweek
+    
+    df = df.drop(columns=["date"])
+
     df["house_id"] = house_id
 
     # Anomaly type column naming normalization
