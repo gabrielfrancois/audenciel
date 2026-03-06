@@ -15,6 +15,7 @@ REF_DIR = Path(PHASE) / "reference_data"
 RAW_DATA_PATH = Path("dev_phase") / "raw_data"
 
 
+features_cols = ["unix", "year", "month", "day", "dayofweek", "aggregate", "house_id"]
 def clean_time_string(time_str):
     """Standardize timestamp strings."""
     if pd.isna(time_str):
@@ -67,7 +68,7 @@ def load_and_prepare(name, filename, house_id):
     baseline = df.loc[normal_mask, "fridge freezer"].mean() if normal_mask.any() else 0
     df["energy_gap"] = df["fridge freezer"] - baseline
 
-    return df[["unix", "year", "month", "day", "dayofweek", "aggregate", "house_id", "anomaly"]]
+    return df[features_cols + ["anomaly"]]
 
 
 def make_csv(data, filepath):
@@ -118,7 +119,6 @@ if __name__ == "__main__":
         ("private_test", private_test_df),
     ]
 
-    features_cols = ["unix", "time", "aggregate", "house_id"]
     labels_cols = ["anomaly"]
 
     for name, df in splits:
