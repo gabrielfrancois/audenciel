@@ -43,7 +43,6 @@ def main(data_dir, output_dir):
     print("Training the model")
     model = get_model()
     start = time.time()
-    X_train = X_train.select_dtypes(include=["number"])
     model.fit(X_train, y_train)
     train_time = time.time() - start
 
