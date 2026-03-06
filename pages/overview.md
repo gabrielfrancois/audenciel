@@ -19,9 +19,8 @@ The REFIT dataset has been adapted: a household has been annotated to indicate a
 - **Dataset**: Multi-home normal-only data + one annotated dataset
 - **Expected Output**: For each timestamp, the model must produce:
   - A "normal / abnormal" decision for the refrigerator/freezer
-  - A prediction of the anomaly type among the defined classes (normal, elongated, frequent), when possible given the chosen approach
 
-The model should be designed to learn primarily from multi-home "normal-only" data. The annotated data will be used for supervised or semi-supervised training.
+The model should be designed to learn primarily from multi-home "normal-only" data.
 
 **Getting Started**
 
