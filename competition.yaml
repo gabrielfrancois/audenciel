@@ -45,7 +45,7 @@ phases:
   execution_time_limit: 600000
   auto_migrate_to_this_phase: false
   hide_output: false
-  starting_kit: starting_kit.zip
+  starting_kit: starting_kit.ipynb
   tasks:
   - 0
 
