@@ -14,8 +14,8 @@ if __name__ == "__main__":
     print("Docker client initialized successfully.")
 
     print("Building Docker image...")
-    client.images.build(path="./tools", dockerfile="Dockerfile", tag="tommoral/template:v1")
-    print("Docker image built successfully with tag 'tommoral/template:v1'.")
+    client.images.build(path="./tools", dockerfile="Dockerfile", tag="yossarianipp/audensiel/refit:v1")
+    print("Docker image built successfully with tag 'yossarianipp/audensiel/refit:v1'.")
 
     print("Running Docker container...")
     logs = client.containers.run(

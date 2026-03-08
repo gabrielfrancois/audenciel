@@ -28,6 +28,7 @@ tasks:
   reference_data: dev_phase/reference_data/
   ingestion_program: ingestion_program/
   scoring_program: scoring_program/
+  docker_image: yossarianipp/audensiel-refit:v1
 
 solutions: []
 
